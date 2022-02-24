@@ -10,5 +10,8 @@
 
     <!-- Detail Product Fragment -->
     <string name="detail_product_screen_title">Detalle</string>
+    <string name="search">Buscar</string>
+    <string name="search_welcome_message">Bienvenido, por favor ingrese su busqueda y de click en el boton buscar</string>
+    <string name="search_signature">Desarrollado por: Jorge López</string>
 
 </resources>

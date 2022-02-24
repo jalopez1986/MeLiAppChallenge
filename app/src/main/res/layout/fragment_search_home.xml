@@ -3,18 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".app.search.home.view.SearchHomeFragment"
     android:orientation="vertical"
-    >
+    android:gravity="center"
+    android:paddingLeft="20dp"
+    android:paddingEnd="20dp">
     
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
+        android:textAlignment="center"
+        android:text="@string/search_welcome_message" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/search_textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_form_component"
+        app:startIconDrawable="@drawable/ic_search"
+        app:endIconMode="clear_text"
+        app:placeholderText="Buscar en mercado libre"
+        >
+
+        <EditText
+            android:id="@+id/search_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search"
+             />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/search_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search"/>
+        android:layout_marginTop="@dimen/padding_form_component"
+        android:text="@string/search"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/search_signature" />
 
 </LinearLayout>
