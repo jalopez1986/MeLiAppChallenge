@@ -13,5 +13,6 @@
     <string name="search">Buscar</string>
     <string name="search_welcome_message">Bienvenido, por favor ingrese su busqueda y de click en el boton buscar</string>
     <string name="search_signature">Desarrollado por: Jorge López</string>
+    <string name="search_empty_query_string_message">El campo de busqueda esta vacío</string>
 
 </resources>
