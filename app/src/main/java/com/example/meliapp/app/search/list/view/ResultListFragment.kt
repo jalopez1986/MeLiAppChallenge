@@ -21,29 +21,21 @@ import com.example.meliapp.core.search.domain.ItemsResponse
 import com.example.meliapp.core.search.infrastructure.ItemsAPI
 import com.example.meliapp.core.search.infrastructure.RetrofitItemsRepository
 import com.example.meliapp.databinding.FragmentResultListBinding
+import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-const val BASE_URL = "https://api.mercadolibre.com/"
+@AndroidEntryPoint
 class ResultListFragment : Fragment() {
     private var _binding: FragmentResultListBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var viewModel: ItemsListViewModel
+    @Inject
     lateinit var viewModelFactory: ItemsListViewModelFactory
 
-    private val retrofitAPI = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(OkHttpClient())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(ItemsAPI::class.java)
-
-    private val repository = RetrofitItemsRepository(retrofitAPI)
-    private val searchItemsByQuery = SearchItemsByQuery(repository)
-
-
+    private val viewModel: ItemsListViewModel by viewModels { viewModelFactory }
 
     val args: ResultListFragmentArgs by navArgs()
 
@@ -53,8 +45,6 @@ class ResultListFragment : Fragment() {
     ): View? {
 
         _binding = FragmentResultListBinding.inflate(inflater, container, false)
-
-        setupViewModel()
 
         observeLoader()
         observeItemsResultList()
@@ -105,12 +95,6 @@ class ResultListFragment : Fragment() {
                 false -> binding.loader.root.visibility = View.GONE
             }
         })
-    }
-
-    private fun setupViewModel() {
-        viewModelFactory = ItemsListViewModelFactory(searchItemsByQuery)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ItemsListViewModel::class.java)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

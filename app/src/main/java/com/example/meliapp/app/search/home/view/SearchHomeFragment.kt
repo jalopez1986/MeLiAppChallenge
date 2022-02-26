@@ -15,8 +15,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.meliapp.R
 import com.example.meliapp.app.search.home.viewmodel.SearchHomeViewModel
 import com.example.meliapp.databinding.FragmentSearchHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SearchHomeFragment : Fragment() {
 
     private var _binding: FragmentSearchHomeBinding? = null
