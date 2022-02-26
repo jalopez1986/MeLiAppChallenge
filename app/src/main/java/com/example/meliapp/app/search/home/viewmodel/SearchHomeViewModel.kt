@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.meliapp.app.util.Event
 
+
 class SearchHomeViewModel : ViewModel() {
     private val _isValidSearchQuery = MutableLiveData<Event<Boolean>>()
     val isValidSearchQuery: LiveData<Event<Boolean>>
