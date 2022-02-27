@@ -4,47 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_root_cardview"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/item_result_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_margin="15dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/item_result_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:maxLines="3"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/textColorPrimary"
             android:textSize="16sp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_result_image"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="SmartTV Samsung Series 4 UN32T4300AGCZB LED HD 32 220V - 240V" />
+            app:layout_constraintTop_toTopOf="parent"  />
 
         <TextView
             android:id="@+id/item_result_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="$36.499"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintStart_toEndOf="@id/item_result_image"
-            app:layout_constraintTop_toBottomOf="@id/item_result_title"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="$ 00.000"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/item_result_title"
+            app:layout_constraintTop_toBottomOf="@+id/item_result_title"
             />
 
         <TextView
@@ -53,26 +54,19 @@
             android:layout_height="wrap_content"
             tools:text="Envio Gratis"
             android:textColor="@color/teal_200"
-            android:textSize="13sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintStart_toEndOf="@id/item_result_image"
-            app:layout_constraintTop_toBottomOf="@id/item_result_price"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/item_result_price"
+            app:layout_constraintTop_toBottomOf="@+id/item_result_price"
             />
 
         <TextView
             android:id="@+id/item_result_condition"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="8dp"
             tools:text="Nuevo"
-            app:layout_constraintStart_toEndOf="@id/item_result_image"
-            app:layout_constraintTop_toBottomOf="@id/item_result_shipping"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="@+id/item_result_shipping"
+            app:layout_constraintTop_toBottomOf="@+id/item_result_shipping"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
