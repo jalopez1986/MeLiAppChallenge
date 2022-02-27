@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ItemstListFragment : Fragment() {
+class ItemsListFragment : Fragment(), ItemsAdapter.OnItemResultRecyclerListener {
     private var _binding: FragmentItemsListBinding? = null
     private val binding get() = _binding!!
 
@@ -31,7 +31,9 @@ class ItemstListFragment : Fragment() {
 
     private val viewModel: ItemsListViewModel by viewModels { viewModelFactory }
 
-    val args: ItemstListFragmentArgs by navArgs()
+    val args: ItemsListFragmentArgs by navArgs()
+
+    lateinit var itemsAdapter: ItemsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +48,12 @@ class ItemstListFragment : Fragment() {
         makeSearchByQuery(args.query)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupRecyclerView()
     }
 
     private fun observeLoader() {
@@ -83,16 +91,13 @@ class ItemstListFragment : Fragment() {
             binding.emptyView.visibility = View.GONE
         }
 
-        with(view as RecyclerView) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = ItemsAdapter(itemsResponse.results) { item ->
-                val action =
-                    ItemstListFragmentDirections.actionResultListFragmentToDetailProductFragment(
-                        item.id ?: ""
-                    )
-                findNavController().navigate(action)
-            }
-        }
+        itemsAdapter.setResults(itemsResponse.results)
+    }
+
+    private fun setupRecyclerView() {
+        binding.eventsRecyclerView.layoutManager = LinearLayoutManager(context)
+        itemsAdapter = ItemsAdapter(this)
+        binding.eventsRecyclerView.adapter = itemsAdapter
     }
 
     private fun manageError(itemsResult: Result<ItemsResponse>) {
@@ -115,5 +120,18 @@ class ItemstListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onBottomReached(position: Int) {
+        viewModel.loadMoreItems(position)
+    }
+
+    override fun onItemClicked(position: Int) {
+        val id = itemsAdapter.getResult(position)?.id
+        val action =
+            ItemsListFragmentDirections.actionResultListFragmentToDetailProductFragment(
+                id ?: ""
+            )
+        findNavController().navigate(action)
     }
 }

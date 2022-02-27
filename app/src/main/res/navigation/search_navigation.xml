@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultListFragment"
-        android:name="com.example.meliapp.app.search.list.view.ItemstListFragment"
+        android:name="com.example.meliapp.app.search.list.view.ItemsListFragment"
         android:label="@string/result_list_screen_title"
         tools:layout="@layout/fragment_items_list" >
         <action

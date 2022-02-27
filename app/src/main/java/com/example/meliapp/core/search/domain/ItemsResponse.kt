@@ -3,7 +3,7 @@ package com.example.meliapp.core.search.domain
 data class ItemsResponse(
     val query: String,
     val paging: Page,
-    val results: List<Item>,
+    var results: List<Item>,
 )
 
 data class Page(

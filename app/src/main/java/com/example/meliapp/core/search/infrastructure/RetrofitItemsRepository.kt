@@ -4,15 +4,14 @@ import com.example.meliapp.core.search.domain.Description
 import com.example.meliapp.core.search.domain.Item
 import com.example.meliapp.core.search.domain.ItemsRepository
 import com.example.meliapp.core.search.domain.ItemsResponse
-import java.io.IOException
 import javax.inject.Inject
 
 class RetrofitItemsRepository @Inject constructor(
     private val api: ItemsAPI
 ) : ItemsRepository {
-    override suspend fun searchByQuery(query: String): Result<ItemsResponse> {
+    override suspend fun searchByQuery(query: String, offset: Int): Result<ItemsResponse> {
         try {
-            val response = api.searchByQuery(query)
+            val response = api.searchByQuery(query, offset)
 
             if (response.isSuccessful) {
                 val body = response.body()

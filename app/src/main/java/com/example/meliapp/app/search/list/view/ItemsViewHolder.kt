@@ -11,15 +11,21 @@ import com.example.meliapp.app.util.FormatterHelper
 import com.example.meliapp.core.search.domain.Item
 
 class ItemsViewHolder(
-    private val view: View
-) : RecyclerView.ViewHolder(view) {
+    view: View,
+    private val onItemResultRecyclerListener: ItemsAdapter.OnItemResultRecyclerListener
+) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
-    val rootCardView: CardView = view.findViewById(R.id.item_root_cardview)
+    private val rootCardView: CardView = view.findViewById(R.id.item_root_cardview)
     private val image: ImageView = view.findViewById(R.id.item_result_image)
     private val title: TextView = view.findViewById(R.id.item_result_title)
     private val price: TextView = view.findViewById(R.id.item_result_price)
     private val shipping: TextView = view.findViewById(R.id.item_result_shipping)
     private val condition: TextView = view.findViewById(R.id.item_result_condition)
+
+    init {
+        rootCardView.setOnClickListener(this)
+    }
+
 
     fun bind(item: Item) {
         title.text = item.title
@@ -31,5 +37,9 @@ class ItemsViewHolder(
             .load(item.thumbnail)
             .centerCrop()
             .into(image)
+    }
+
+    override fun onClick(v: View?) {
+        onItemResultRecyclerListener.onItemClicked(adapterPosition)
     }
 }
