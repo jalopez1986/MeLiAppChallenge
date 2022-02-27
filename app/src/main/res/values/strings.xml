@@ -15,6 +15,6 @@
     <string name="search_signature">Desarrollado por: Jorge López</string>
     <string name="search_empty_query_string_message">El campo de busqueda esta vacío</string>
     <string name="empty_view_message">No hay datos</string>
-    <string name="item_result_freeshipping">Envio Gratis</string>
+    <string name="api_result_error_message">Se ha presentado un error, compruebe su conexión e intente de nuevo</string>
 
 </resources>

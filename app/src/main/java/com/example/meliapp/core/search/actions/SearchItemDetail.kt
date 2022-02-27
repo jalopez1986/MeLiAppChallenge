@@ -1,12 +1,9 @@
 package com.example.meliapp.core.search.actions
 
-import com.bumptech.glide.load.engine.Resource
-import com.example.meliapp.core.search.domain.Description
 import com.example.meliapp.core.search.domain.ItemInfo
 import com.example.meliapp.core.search.domain.ItemsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.lang.RuntimeException
 import javax.inject.Inject
 
 class SearchItemDetail @Inject constructor(
@@ -16,7 +13,7 @@ class SearchItemDetail @Inject constructor(
         val itemDetail = itemsRepository.searchItemDetail(id)
         val description = itemsRepository.searchItemDescription(id)
 
-        if( itemDetail.isSuccess && description.isSuccess) {
+        if (itemDetail.isSuccess && description.isSuccess) {
             return flow {
                 emit(Result.success(ItemInfo(itemDetail.getOrNull()!!, description.getOrNull()!!)))
             }

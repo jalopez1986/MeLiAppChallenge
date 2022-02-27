@@ -3,14 +3,13 @@ package com.example.meliapp.app.search.list.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.meliapp.R
 import com.example.meliapp.core.search.domain.Item
 
-class ItemsAdapter (
+class ItemsAdapter(
     private val data: List<Item>,
     private val itemClickListener: (Item) -> Unit,
-        ) : RecyclerView.Adapter<ItemsViewHolder>() {
+) : RecyclerView.Adapter<ItemsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
         val view = LayoutInflater.from(parent.context)

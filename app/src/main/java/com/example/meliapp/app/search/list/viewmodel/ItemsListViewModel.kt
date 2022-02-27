@@ -26,10 +26,8 @@ class ItemsListViewModel(
         viewModelScope.launch {
             _loader.postValue(true)
             searchItemsByQuery.execute(query).collect {
-                if (it.isSuccess) {
-                    _loader.postValue(false)
-                    _items.postValue(it)
-                }
+                _loader.postValue(false)
+                _items.postValue(it)
             }
         }
     }

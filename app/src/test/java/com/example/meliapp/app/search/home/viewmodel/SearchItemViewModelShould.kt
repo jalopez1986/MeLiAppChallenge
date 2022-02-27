@@ -9,10 +9,10 @@ import org.junit.Test
 private const val VALID_QUERY_STRING = "valid string"
 private const val INVALID_QUERY_STRING = ""
 
-class SearchHomeViewModelShould : BaseUnitTest() {
+class SearchItemViewModelShould : BaseUnitTest() {
     @Test
     fun `send true when have a valid searchQuery`() {
-        val viewModel = SearchHomeViewModel()
+        val viewModel = SearchItemViewModel()
 
         viewModel.tryToMakeSearch(VALID_QUERY_STRING)
         val value = viewModel.isValidSearchQuery.getValueForTest()
@@ -22,7 +22,7 @@ class SearchHomeViewModelShould : BaseUnitTest() {
 
     @Test
     fun `send false when have a invalid searchQuery`() {
-        val viewModel = SearchHomeViewModel()
+        val viewModel = SearchItemViewModel()
 
         viewModel.tryToMakeSearch(INVALID_QUERY_STRING)
         val value = viewModel.isValidSearchQuery.getValueForTest()

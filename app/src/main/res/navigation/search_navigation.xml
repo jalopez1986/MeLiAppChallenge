@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/searchHomeFragment"
-        android:name="com.example.meliapp.app.search.home.view.SearchHomeFragment"
+        android:name="com.example.meliapp.app.search.home.view.SearchItemFragment"
         android:label="@string/search_screen_title"
-        tools:layout="@layout/fragment_search_home" >
+        tools:layout="@layout/fragment_search_item">
         <action
             android:id="@+id/action_searchHomeFragment_to_resultListFragment"
             app:destination="@id/resultListFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultListFragment"
-        android:name="com.example.meliapp.app.search.list.view.ResultListFragment"
+        android:name="com.example.meliapp.app.search.list.view.ItemstListFragment"
         android:label="@string/result_list_screen_title"
-        tools:layout="@layout/fragment_result_list" >
+        tools:layout="@layout/fragment_items_list" >
         <action
             android:id="@+id/action_resultListFragment_to_detailProductFragment"
             app:destination="@id/detailProductFragment" />
@@ -34,5 +34,10 @@
         <argument
             android:name="itemId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailProductFragment_to_searchHomeFragment"
+            app:destination="@id/searchHomeFragment"
+            app:popUpTo="@id/searchHomeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

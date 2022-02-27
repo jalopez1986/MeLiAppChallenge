@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".app.search.list.view.ResultListFragment">
+    tools:context=".app.search.list.view.ItemstListFragment">
 
     <LinearLayout
         android:id="@+id/empty_view"

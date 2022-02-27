@@ -26,12 +26,9 @@ class ItemDetailViewModel(
         viewModelScope.launch {
             _loader.postValue(true)
             searchItemDetail.execute(id).collect {
-                if (it.isSuccess) {
-                    _loader.postValue(false)
-                    _itemDetail.postValue(it)
-                }
+                _loader.postValue(false)
+                _itemDetail.postValue(it)
             }
         }
-
     }
 }

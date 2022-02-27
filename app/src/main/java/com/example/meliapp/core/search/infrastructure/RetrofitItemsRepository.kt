@@ -1,6 +1,5 @@
 package com.example.meliapp.core.search.infrastructure
 
-import com.bumptech.glide.load.engine.Resource
 import com.example.meliapp.core.search.domain.Description
 import com.example.meliapp.core.search.domain.Item
 import com.example.meliapp.core.search.domain.ItemsRepository
@@ -22,7 +21,8 @@ class RetrofitItemsRepository @Inject constructor(
                     return Result.success(body)
                 }
             }
-            return Result.failure(IOException("Error getting Item ${response.code()} ${response.message()}"))
+
+            return Result.failure(RuntimeException("Error getting Item ${response.code()} ${response.message()}"))
         } catch (exception: Exception) {
             return Result.failure(exception)
         }
@@ -39,8 +39,8 @@ class RetrofitItemsRepository @Inject constructor(
                     return Result.success(body)
                 }
             }
-            val a = "jorge"
-            return Result.failure(IOException("Error getting Item ${response.code()} ${response.message()}"))
+
+            return Result.failure(RuntimeException("Error getting Item ${response.code()} ${response.message()}"))
         } catch (exception: Exception) {
             val a = exception.localizedMessage
             return Result.failure(exception)
@@ -58,10 +58,9 @@ class RetrofitItemsRepository @Inject constructor(
                     return Result.success(body)
                 }
             }
-            val a = "jorge"
-            return Result.failure(IOException("Error getting Item ${response.code()} ${response.message()}"))
+
+            return Result.failure(RuntimeException("Error getting Item ${response.code()} ${response.message()}"))
         } catch (exception: Exception) {
-            val a = exception.localizedMessage
             return Result.failure(exception)
         }
     }
