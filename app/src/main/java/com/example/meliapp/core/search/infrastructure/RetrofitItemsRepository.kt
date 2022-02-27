@@ -1,5 +1,8 @@
 package com.example.meliapp.core.search.infrastructure
 
+import com.bumptech.glide.load.engine.Resource
+import com.example.meliapp.core.search.domain.Description
+import com.example.meliapp.core.search.domain.Item
 import com.example.meliapp.core.search.domain.ItemsRepository
 import com.example.meliapp.core.search.domain.ItemsResponse
 import java.io.IOException
@@ -21,6 +24,44 @@ class RetrofitItemsRepository @Inject constructor(
             }
             return Result.failure(IOException("Error getting Item ${response.code()} ${response.message()}"))
         } catch (exception: Exception) {
+            return Result.failure(exception)
+        }
+    }
+
+    override suspend fun searchItemDetail(id: String): Result<Item> {
+        try {
+            val response = api.searchItemDetail(id)
+
+            if (response.isSuccessful) {
+                val body = response.body()
+
+                if (body != null) {
+                    return Result.success(body)
+                }
+            }
+            val a = "jorge"
+            return Result.failure(IOException("Error getting Item ${response.code()} ${response.message()}"))
+        } catch (exception: Exception) {
+            val a = exception.localizedMessage
+            return Result.failure(exception)
+        }
+    }
+
+    override suspend fun searchItemDescription(id: String): Result<Description> {
+        try {
+            val response = api.searchItemDescription(id)
+
+            if (response.isSuccessful) {
+                val body = response.body()
+
+                if (body != null) {
+                    return Result.success(body)
+                }
+            }
+            val a = "jorge"
+            return Result.failure(IOException("Error getting Item ${response.code()} ${response.message()}"))
+        } catch (exception: Exception) {
+            val a = exception.localizedMessage
             return Result.failure(exception)
         }
     }

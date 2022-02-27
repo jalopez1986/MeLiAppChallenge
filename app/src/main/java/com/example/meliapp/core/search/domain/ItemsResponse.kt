@@ -1,8 +1,8 @@
 package com.example.meliapp.core.search.domain
 
-import android.content.ClipData
-
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class ItemsResponse(
     @SerializedName("query") val query: String,
@@ -10,10 +10,12 @@ data class ItemsResponse(
     @SerializedName("results") val results: List<Item>,
 )
 
+
 data class Page(
     val total: Int,
     val limit: Int,
 )
+
 
 data class Item(
     val id: String?,
@@ -45,3 +47,4 @@ data class Description(
 data class Pictures(
     val url: String,
 )
+

@@ -82,7 +82,8 @@ class ResultListFragment : Fragment() {
         with(view as RecyclerView) {
             layoutManager = LinearLayoutManager(context)
             adapter = ItemsAdapter(itemsResponse.results) { item ->
-                findNavController().navigate(R.id.detailProductFragment)
+                val action = ResultListFragmentDirections.actionResultListFragmentToDetailProductFragment(item.id ?: "")
+                findNavController().navigate(action)
             }
         }
 

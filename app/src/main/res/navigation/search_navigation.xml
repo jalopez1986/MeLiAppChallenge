@@ -28,7 +28,11 @@
     </fragment>
     <fragment
         android:id="@+id/detailProductFragment"
-        android:name="com.example.meliapp.app.search.detail.view.DetailProductFragment"
+        android:name="com.example.meliapp.app.search.detail.view.ItemDetailFragment"
         android:label="@string/detail_product_screen_title"
-        tools:layout="@layout/fragment_detail_product" />
+        tools:layout="@layout/fragment_item_detail" >
+        <argument
+            android:name="itemId"
+            app:argType="string" />
+    </fragment>
 </navigation>
