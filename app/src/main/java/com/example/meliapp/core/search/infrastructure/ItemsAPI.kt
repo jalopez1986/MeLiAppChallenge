@@ -9,7 +9,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ItemsAPI {
-    @GET("sites/MLA/search?")
+    @GET("sites/MCO/search?")
     suspend fun searchByQuery(@Query("q") query: String): Response<ItemsResponse>
 
     @GET("items/{id}")
