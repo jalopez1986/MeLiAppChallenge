@@ -6,7 +6,6 @@ import com.example.meliapp.core.search.domain.ItemsRepository
 import com.example.meliapp.core.search.domain.ItemsResponse
 import com.example.meliapp.core.search.domain.exceptions.ApiResponseException
 import com.example.meliapp.core.search.domain.exceptions.GenericNetworkException
-import java.io.IOException
 import javax.inject.Inject
 
 class RetrofitItemsRepository @Inject constructor(
@@ -24,9 +23,9 @@ class RetrofitItemsRepository @Inject constructor(
                 }
             }
 
-            return Result.failure(RuntimeException("Error getting Item ${response.code()} ${response.message()}"))
+            return Result.failure(ApiResponseException("API response error"))
         } catch (exception: Exception) {
-            return Result.failure(exception)
+            return Result.failure(GenericNetworkException("Generic Network Error"))
         }
     }
 
@@ -44,7 +43,7 @@ class RetrofitItemsRepository @Inject constructor(
 
             return Result.failure(ApiResponseException("Error getting Item ${response.code()} ${response.message()}"))
         } catch (exception: Exception) {
-            return Result.failure(GenericNetworkException("something wrong"))
+            return Result.failure(exception)
         }
     }
 
