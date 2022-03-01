@@ -2,7 +2,7 @@
 
 Meli Android App Challenge
 
-Single activity application 100% kotlin que usando la arquitectura MVVM recomendada por google, consume el API de Mercadolibre presentando 3 pantallas principales:
+Single activity application 100% que consume el API de Mercadolibre presentando 3 pantallas principales:
 
 - Campo de búsqueda.
 - Visualización de resultados de la búsqueda.
