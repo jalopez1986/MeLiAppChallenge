@@ -30,3 +30,8 @@ Single activity application 100% que consume el API de Mercadolibre presentando 
 - Hilt (Dependency injection)
 - Retrofit
 - JUnit 4 and Mockito.
+
+## Notas al revisor
+- Solo se hicieron Unit test al feature de SearchItem y ItemsList, quedó faltando el feature de ItemDetail pero la filosofia sería la misma
+- Se decidió un enfoque simple para el manejo de excepciones.
+- Tuve dudas en la mejor forma de implementar un scroll infinito utilizando el paging que ofrece la API, por tal razón deje una propuesta en la rama feature/infinite_scroll https://github.com/jalopez1986/MeLiAppChallenge/tree/feature/infinite_scroll para su revisón
